@@ -5,7 +5,21 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>Bau.Libraries.LibMailProtocols</RootNamespace>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>Protocolos de correo electrónico: SMTP y POP3</Description>
+    <PackageProjectUrl>https://github.com/jbautistam/LibEmailProtocols</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/jbautistam/LibEmailProtocols</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>SMTP;POP3</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\LibMime\LibMime.csproj" />

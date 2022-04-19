@@ -1,10 +1,10 @@
-name: .NET
+name: nuget-build-deploy
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 6.0.x
 
     - name: Restore dependencies
       run: dotnet restore
@@ -25,7 +25,7 @@ jobs:
       run: dotnet build --no-restore    
       
     - name: Pack
-      run: dotnet pack -v normal -c Release --no-restore --include-symbols --include-source -p:PackageVersion=$GITHUB_RUN_ID src/LibHelper.csproj
+      run: dotnet pack -v normal -c Release --no-restore --include-symbols --include-source -p:PackageVersion=$GITHUB_RUN_ID src/LibMailProtocols/LibMailProtocols.csproj
 
     - name: Publish nuget Bau.Libraries.LibMailProtocols
       uses: brandedoutcast/publish-nuget@v2.5.2
